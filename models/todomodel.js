@@ -1,17 +1,28 @@
 const mongoose = require('mongoose');
 
-const todoSchema = new mongoose.Schema(
-  {
-    description: {
-      type: String,
-      trim: true,
-    },
-    dueDate: {
-      type: Date,
-    },
+const todoSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: false,
+    trim: true,
   },
-  { timestamps: true } 
-);
+  description: {
+    type: String,
+    trim: true,
+  },
+  completed: {
+    type: Boolean,
+    default: false, 
+  },
+  dueDate: {
+    type: Date,
+  },
+  priority: {
+    type: String,
+    enum: ['low', 'medium', 'high'],
+    default: 'medium',
+  },
+}, { timestamps: true }); 
 
 const Todo = mongoose.model('Todo', todoSchema);
 
