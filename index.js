@@ -5,11 +5,13 @@ require('dotenv').config();
 
 const app = express(); 
 const todorouter = require("./routes/todoroute");
+const authrouter = require("./routes/authroute")
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/todos", todorouter);
+app.use("/auth", authrouter);
 
 app.get('/', (req, res) => {
     res.send('Welcome to TodoApp');
