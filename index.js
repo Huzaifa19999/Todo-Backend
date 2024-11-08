@@ -14,7 +14,7 @@ app.use("/todos", todorouter);
 app.use("/auth", authrouter);
 
 app.get('/', (req, res) => {
-    res.send('Welcome to TodoApp');
+    res.send('Welcome to Module B Final MERN Hackathon');
 });
 
 mongoose.connect(process.env.MONGO_URI)
